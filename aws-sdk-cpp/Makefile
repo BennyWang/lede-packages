@@ -26,7 +26,7 @@ endef
 
 #sed -i 's/#if OPENSSL_VERSION_LESS_1_1/#if OPENSSL_VERSION_LESS_1_1 \&\& !defined\(OPENSSL_NO_DEPRECATED\)/1' $(PKG_BUILD_DIR)/aws-cpp-sdk-core/source/utils/crypto/openssl/CryptoImpl.cpp
 define Build/Configure
-	$(CP) $(TOPDIR)/feeds/stethoscope/aws-sdk-cpp/CryptoImpl.cpp $(PKG_BUILD_DIR)/aws-cpp-sdk-core/source/utils/crypto/openssl/CryptoImpl.cpp
+	$(CP) $(TOPDIR)/feeds/stethoscope/aws-sdk-cpp/patches/CryptoImpl.cpp $(PKG_BUILD_DIR)/aws-cpp-sdk-core/source/utils/crypto/openssl/CryptoImpl.cpp
 	$(call Build/Configure/Default)
 endef
 

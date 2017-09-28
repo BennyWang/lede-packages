@@ -2,11 +2,11 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=aws-sdk-cpp
 PKG_VERSION:=1.2.1
-PKG_REV:=90eb0ee4be28ac23efc10c8eedf21235f9a37402
+PKG_REV:=dc7ceea74f24280f38f62646b6b179c8c1f1b79c
 PKG_RELEASE:=1
 
 PKG_SOURCE_PROTO:=git
-PKG_SOURCE_URL:=https://github.com/aws/aws-sdk-cpp.git
+PKG_SOURCE_URL:=https://github.com/BennyWang/aws-sdk-cpp.git
 
 PKG_SOURCE_VERSION:=$(PKG_REV)
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION)-$(PKG_REV).tar.gz
@@ -26,7 +26,6 @@ endef
 
 #sed -i 's/#if OPENSSL_VERSION_LESS_1_1/#if OPENSSL_VERSION_LESS_1_1 \&\& !defined\(OPENSSL_NO_DEPRECATED\)/1' $(PKG_BUILD_DIR)/aws-cpp-sdk-core/source/utils/crypto/openssl/CryptoImpl.cpp
 define Build/Configure
-	$(CP) $(TOPDIR)/feeds/stethoscope/aws-sdk-cpp/patches/CryptoImpl.cpp $(PKG_BUILD_DIR)/aws-cpp-sdk-core/source/utils/crypto/openssl/CryptoImpl.cpp
 	$(call Build/Configure/Default)
 endef
 
